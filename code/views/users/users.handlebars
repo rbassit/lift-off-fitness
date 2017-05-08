@@ -1,0 +1,32 @@
+<div class="container-fluid" id="users-bg">
+<div class="row">
+<div class="col-xs-12">
+<div class="info-heading"><h1><strong>Spotters</strong></h1>
+</div>
+</div>
+</div>
+
+{{#each users}}
+<div class="row">
+  <hr/>
+  <span class="col-xs-1"></span>
+  <div class="col-xs-1">
+      <a href="/images/{{username}}.jpg"><img src="/images/{{username}}.jpg" width="85" height="85"/></a>
+  </div>
+  <div class="col-xs-2">
+      <div class="username"><a href="/users/{{username}}" style="text-decoration: none;">{{username}}</a></div>
+      <div class="info-small">{{firstName}} {{lastName}}</div>
+      <div>{{gym}}</div>
+      <!-- <div>{{country}}</div> -->
+      <!-- Add country in future -->
+  </div>
+  <div class="col-xs-6">
+      <li class="list-group-item spotter" style="margin-top: 19px;">{{fitness_goal}}</li>
+  </div>
+<!--   <div class="col-xs-2">
+      <li class="list-group-item spotter">{{firstName}}</li>
+  </div> -->
+
+</div>
+{{/each}}
+<hr/>

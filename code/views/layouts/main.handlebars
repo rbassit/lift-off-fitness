@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!--Created by: Frank Cingel, Ryan Bassit, Edouard Michel-->
+  <title>Lift-Off-Fitness</title>
+
+  <link rel="icon" href="/images/liftoff/liftoff-logo.png">
+
+  <meta charset="utf-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Custom css -->
+  <link href="http://localhost:8000/css/styles.css" rel="stylesheet">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 navbar">
+    <div class="navbar-collapse">
+     <a href="/" class="pull-left"><img class="liftoff-logo" src="/images/liftoff/liftoff-logo.png"></a> 
+      <a class="btn btn-lg navbar-left navbar-link" href="/"><strong>Lift-Off Fitness</strong></a></li>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="btn btn-lg nav-btn" href="/leaderboard" title="Can you become the best?">Leaderboard</a></li>
+          <li><a class="btn btn-lg nav-btn" href="/users" title="Need a spot?">Spotters</a></li>
+          {{#if cur_user}}
+            <li><a class="btn btn-lg nav-btn" href="/profile" title="View & edit your info and stats!">Profile</a></li>
+              <li class="dropdown">
+                <button class="btn btn-lg user-dropdown" type="button" data-toggle="dropdown">{{cur_user.username}}
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li id="logout"><a class="btn-signout" href="#" title="Don't quit now!">Sign Out</a></li>
+                </ul>
+              </li>
+          {{ else }}
+            <li><a class="btn btn-lg nav-btn" href="/sign-up" title="Let's lift!">Sign Up</a></li>
+            <li><a class="btn btn-lg nav-btn" href="/sign-in" title="Welcome back!">Sign In</a></li>
+          {{/if}}
+        </ul>
+    </div>
+  </div>
+  <div class="main-content">
+  {{{ body }}}
+  </div>
+</div>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous">
+</script>
+
+<script>
+  ;(function() {
+    $('#logout').click(function() {
+      $.post("/logout", function() {
+        window.location.href = '/';
+      });
+    });
+  })();
+</script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

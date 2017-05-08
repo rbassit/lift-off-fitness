@@ -1,0 +1,42 @@
+<div class="container-fluid" id="leaderboard-bg">
+<div class="row">
+<div class="col-xs-11 col-centered">
+<div class="info-heading"><h1><strong>Leaderboard</strong></h1></div>
+<div class="info-heading"><h5>Select a workout</h5></div>
+
+
+<table class="table table-hover table-striped leader-table" style="margin-bottom: 8%;">
+  <thead>
+    <tr class="table-title">
+      <th><h4><a class="title-content" href="/leaderboard" style="text-decoration: none;">Username</a></h4></th>
+      <th><h4><a class="title-content" href="/leaderboard/bench_press" style="text-decoration: none;">Bench Press</a></h4></th>
+      <th><h4><a class="title-content" href="/leaderboard/military_press" style="text-decoration: none;">Military Press</h4></th>
+      <th><h4><a class="title-content" href="/leaderboard/squat" style="text-decoration: none;">Squat</h4></th>
+      <th><h4><a class="title-content" href="/leaderboard/deadlift" style="text-decoration: none;">Deadlift</h4></th>
+      <th><h4><a class="faded">Height</a></h4></th>
+      <th><h4><a class="faded">Weight</a></h4></th>
+      <th><h4><a class="faded">Gender</a></h4></th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr>
+      <td><a href="/users/{{username}}" style="text-decoration: none; color: #7c003f;"><strong>{{username}}</strong></a></td>
+      {{#if @first}}
+      <td class="sorted" title="Mad gains!"> {{bench_press}} lbs</td>
+      {{else}}
+      <td class="sorted"> {{bench_press}} lbs</td>
+      {{/if}}
+      <td> {{military_press}} lbs</td>
+      <td> {{squat}} lbs</td>
+      <td> {{deadlift}} lbs</td>
+      <td> {{height}}"</td>
+      <td> {{weight}} lbs</td>
+      <td> {{gender}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</div>
+</div>
